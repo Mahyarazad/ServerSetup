@@ -9,11 +9,11 @@ const LocalStategy = require('passport-local');
 const localLogin = new LocalStategy({
     usernameField : 'email'
     }, function (email, password, done){
-
+        
         //verify this email and password, call done
         User.findOne({email:email}, function (err,user){
             if(err) return done(err);
-
+            
             //if it is the correct email
             // otherwise, call done with false
             if(!user) return done(null, false);
@@ -34,8 +34,13 @@ const jwtOptions = {
 };
 
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done){
-
+    // see if the user id in the payload exists in our database
+    //if it does, call 'done' with the otherwise
+    //otherwise, call 'done' without a user object
+    // sub = subject
+    
     User.findById(payload.sub, function(err, user){
+        //console.log(payload);
         if(err) return done(err,false);
         if (user){
             done(null, user);
