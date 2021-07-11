@@ -7,8 +7,8 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const mogoUser = process.env.MONGODB_USER;
-const mogoPass = process.env.MONGODB_PASS;
+const mongoUser = process.env.MONGODB_USER;
+const mongoPass = process.env.MONGODB_PASS;
 const appSecret = process.env.APP_SECRET;
 // DB Setup
 // mongoose.connect('mongodb://localhost/auth');
