@@ -7,13 +7,14 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const mogoUser = process.env.MONGODB_USER;
+const mogoPass = process.env.MONGODB_PASS;
 // DB Setup
 // mongoose.connect('mongodb://localhost/auth');
 
 //Dev Setup
 
-mongoose.connect("mongodb+srv://MaahyarAzad:SagPedar%409508@clusterzero.jn5oj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@clusterzero.jn5oj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
  {useNewUrlParser: true},
  {useUnifiedTopology: true});
 
