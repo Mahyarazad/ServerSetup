@@ -14,7 +14,7 @@ const appSecret = process.env.APP_SECRET;
 // mongoose.connect('mongodb://localhost/auth');
 
 //Dev Setup
-
+//
 mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@clusterzero.jn5oj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
  {useNewUrlParser: true},
  {useUnifiedTopology: true});
