@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const mogoUser = process.env.MONGODB_USER;
 const mogoPass = process.env.MONGODB_PASS;
+const appSecret = process.env.APP_SECRET;
 // DB Setup
 // mongoose.connect('mongodb://localhost/auth');
 
@@ -23,7 +24,7 @@ mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPass}@clusterzero.jn5oj.mong
 app.use(session({
     resave: false,
     saveUninitialized: true,
-    secret:"HelloWorld"
+    secret:appSecret
 }));
 
 app.use(express.json())
